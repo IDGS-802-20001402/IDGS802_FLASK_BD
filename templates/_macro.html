@@ -1,0 +1,21 @@
+{% macro render_field(field) %}
+
+<div class="control-group">
+  <label for="{{ field.name }}" class="control-label">{{ field.label }}</label>
+
+  <!-- display radio inline -->
+  {% if field.type == "RadioField" %} {% for subfield in field %}
+  <label class="radio inline">
+    {{ subfield(**kwargs)|safe }} {{ subfield.label }}
+  </label>
+  {% endfor %} {% else %}
+  <div class="controls">{{ field(**kwargs)|safe }}</div>
+  {% endif %}
+</div>
+{% if field.errors %}
+<ul>
+  {% for error in field.errors %}
+  <li style="color: red">{{ error }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endmacro %}
