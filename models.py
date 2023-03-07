@@ -11,11 +11,11 @@ class Alumnos(db.Model):
     email = db.Column(db.String(50))
     created_at = db.Column(db.DateTime, default=datetime.datetime.now)
 
-    def __init__(self, nombre, apellido, email, fecha_nacimiento):
+    def __init__(self, nombre, apellido, email):
         self.nombre = nombre
         self.apellido = apellido
         self.email = email
-        self.fecha_nacimiento = fecha_nacimiento
+ 
 
     def __repr__(self):
         return '<Alumno %r>' % self.nombre
