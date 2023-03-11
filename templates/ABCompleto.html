@@ -3,25 +3,10 @@
 {% from "_macro.html" import render_field %}
 <div class="container">
     <div class="row">
-        <form name="sent" action="/ABCompleto" id="form1" method="POST">
-            <div class="row control-group">
-                <div class="form-group col-xs-12 float-label-form-group controls">
-                    {{ render_field(form.nombre, class="form-control") }}
-                </div>
-            </div>
-            <div class="row control-group">
-                <div class="form-group col-xs-12 float-label-form-group controls">
-                    {{ render_field(form.apellido, class="form-control") }}
-                </div>
-            </div>
-            <div class="row control-group">
-                <div class="form-group col-xs-12 float-label-form-group controls">
-                    {{ render_field(form.email, class="form-control") }}
-                </div>
-            </div>
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="submit" value="Modificar" id="reg-alumn" name="modifica">
-        </form>
+        <a href="/" class="btn btn-warning">
+            <i class="icon-plus icon-white"></i> Agregar
+        </a>
+
         <h3>Alumnos IDGS</h3>
         <table class="table table-striped table-bordered">
             <thead>
@@ -47,7 +32,7 @@
                     <th>
                         <form action="/eliminar/{{alumno.id}}" method="POST">
                             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input type="submit" value="Eliminar" id="reg-alumn" name="elimina">
+                            <input type="submit" value="Eliminar" id="reg-alumn" name="elimina" class="btn btn-danger">
                         </form>
                     </th>
                     <th>

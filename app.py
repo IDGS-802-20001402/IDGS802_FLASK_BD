@@ -34,7 +34,7 @@ def index():
         alumno = Alumnos(form.nombre.data, form.apellido.data, form.email.data)
         db.session.add(alumno)
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('ABCompleto'))
     return render_template('index.html', form=form)
 
 @app.route('/modificar/<id>', methods=['GET', 'POST'])
